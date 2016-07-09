@@ -64,7 +64,7 @@ exports.index = function(req, res){
 	notify(message, function(){
 		
 	});
-	res.end();
+	res.send({message : 'hi'});
 	
 };
 
