@@ -170,7 +170,7 @@ exports.webhook_get = function(req, res){
 exports.webhook_post = function (req, res){
 	try {
         var data = JSONbig.parse(req.body);
-
+        console.error(data);
         var messaging_events = data.entry[0].messaging;
         for (var i = 0; i < messaging_events.length; i++) {
             var event = data.entry[0].messaging[i];
