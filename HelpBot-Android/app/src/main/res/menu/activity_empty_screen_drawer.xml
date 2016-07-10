@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_refugee_list"
+        android:title="Refugee Information">
+        <menu>
+            <group
+                android:id="@+id/group1"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_list"
+                    android:icon="@drawable/ic_list"
+                    android:title="Refugee List" />
+                <item
+                    android:id="@+id/nav_add"
+                    android:icon="@drawable/ic_add"
+                    android:title="Help a Refugee" />
+            </group>
+
+        </menu>
+    </item>
+</menu>
