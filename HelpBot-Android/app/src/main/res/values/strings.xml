@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HelpBot-Android</string>
+    <string name="gcm_sender_id">537913534080</string>
+</resources>
