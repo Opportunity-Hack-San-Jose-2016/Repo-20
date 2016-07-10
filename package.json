@@ -6,7 +6,12 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "apiai": "^2.0.5",
+    "asyn": "0.0.1",
+    "ejs": "*",
     "express": "3.2.6",
-    "ejs": "*"
+    "json-bigint": "^0.2.0",
+    "node-uuid": "^1.4.7",
+    "request": "^2.73.0"
   }
 }
