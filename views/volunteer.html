@@ -14,6 +14,7 @@
 	src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script src="controllers/volunteer-controller.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATKZoaM5JLz25tL3aPJ1A_ZPi6ZnsAtAQ&callback=initMap2" type="text/javascript" async defer></script>
 </head>
 <body ng-app="volunteers" ng-controller="volunteerController">
 
@@ -32,25 +33,26 @@
 			<div class="col-md-8"
 				style="border: 1px solid black; min-height: 600px;">
 				<h3>People around you</h3>
-				<div class="panel-group" style="cursor:pointer">
-					<div class="panel panel-default" ng-repeat="refugee in refugees">
+				<div class="panel-group" style="cursor: pointer">
+					<div class="panel panel-default" ng-repeat="refugee in refugees" onclick="initMap({{refugee.lat}},{{refugee.long}})">
 						<div class="panel-heading">{{refugee.name}}</div>
 						<div class="panel-body">
 							<div class="row" style="margin-left: 10px;">
-								<div class="col-md-4">Refugee ID : {{refugee.ID}}</div>								
-								<div class="col-md-4 col-md-offset-4">Age : {{refugee.age}}</div>
+								<div class="col-md-4">Refugee ID : {{refugee.ID}}</div>
+								<div class="col-md-4 col-md-offset-4">Age :
+									{{refugee.age}}</div>
 							</div>
 							<div class="row" style="margin-left: 10px;">
 								<div class="col-md-4">Address : {{refugee.address}}</div>
-								<div class="col-md-4 col-md-offset-4">Disability : {{refugee.disability}}</div>
+								<div class="col-md-4 col-md-offset-4">Disability :
+									{{refugee.disability}}</div>
 							</div>
-							
+
 							<div class="row" style="margin-left: 10px;">
 								<div class="col-md-4">Zip Code : {{refugee.zipcode}}</div>
-								<div class="col-md-4 col-md-offset-4">Phone : {{refugee.phone}}</div>
+								<div class="col-md-4 col-md-offset-4">Phone :
+									{{refugee.phone}}</div>
 							</div>
-							
-							
 
 						</div>
 					</div>
@@ -58,10 +60,40 @@
 
 			</div>
 			<div class="col-md-4"
-				style="border: 1px solid black; min-height: 600px;"></div>
+				style="border: 1px solid black; min-height: 600px;">
+
+				<div id="gMap" style="width:100%; height:100%;"></div>
+
+			</div>
 
 		</div>
 	</div>
+
+
+<script>
+
+function initMap2() {
+	  // Create a map object and specify the DOM element for display.
+	  var map = new google.maps.Map(document.getElementById('gMap'), {
+	    center: {lat: 0, lng: 0},
+	    scrollwheel: false,
+	    zoom: 16
+	  });
+	  console.log(map);
+	}
+	
+function initMap(lat, lng) {
+	  // Create a map object and specify the DOM element for display.
+	  console.log(lat, lng);
+	  var map = new google.maps.Map(document.getElementById('gMap'), {
+	    center: {lat: lat, lng: lng},
+	    scrollwheel: false,
+	    zoom: 16
+	  });
+	  console.log(map);
+	}
+
+</script>
 
 </body>
 </html>
