@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "537913534080",
+    "project_id": "helpbot-1367"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537913534080:android:72b7224bf82517ee",
+        "android_client_info": {
+          "package_name": "com.opportunityhack.teamhacks.helpbot_android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQUzT69X4GGivyvl3HbjnM_LYxQA--5Mo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
