@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     >
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo"
+        android:layout_gravity="center_horizontal"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,9 +35,7 @@
         android:id="@+id/imageView3"
         android:layout_gravity="center"
         android:layout_marginTop="90dp"
-        android:src="@drawable/right"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:src="@drawable/right" />
 
 
 
