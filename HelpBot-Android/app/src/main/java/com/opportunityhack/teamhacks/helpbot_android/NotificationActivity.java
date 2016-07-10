@@ -39,6 +39,7 @@ public class NotificationActivity extends AppCompatActivity implements Navigatio
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         String pushService = getIntent().getStringExtra("pushService");
+        //Log.i("pushService", pushService);
 
         if (pushService != null) {
             //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,7 +50,7 @@ public class NotificationActivity extends AppCompatActivity implements Navigatio
             detailFragment.setArguments(data);
             fragmentTransaction.replace(R.id.container, detailFragment);
             fragmentTransaction.commit();
-            toolbar.setTitle("");
+            toolbar.setTitle("Detail");
 
         } else {
             WelcomeFragment welcomeFragment = new WelcomeFragment();
