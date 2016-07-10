@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
+  , ejs = require('ejs')
   , bot = require('./routes/bot.js')
   , path = require('path');
 
@@ -27,7 +28,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/', function(req, res){
+	console.log('Request');
+	res.render('index');
+});
 
 app.get('/webhook/', bot.webhook_get);
 app.post('/webhook/', bot.webhook_post);
@@ -35,3 +39,5 @@ app.post('/webhook/', bot.webhook_post);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+doSubscribeRequest();
