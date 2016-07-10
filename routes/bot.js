@@ -180,10 +180,12 @@ exports.webhook_post = function (req, res){
             status: "ok"
         });
     } catch (err) {
+    	console.log(err);
         return res.status(400).json({
             status: "error",
             error: err
         });
+        
     }
 };
 
