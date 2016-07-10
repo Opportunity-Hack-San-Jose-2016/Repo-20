@@ -1,3 +1,5 @@
+"use strict";
+
 var apiai = require('apiai');
 var uuid = require('node-uuid');
 var request = require('request');

@@ -29,12 +29,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 
-
 app.get('/webhook/', bot.webhook_get);
 app.post('/webhook/', bot.webhook_post);
-
-
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
