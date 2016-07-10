@@ -28,10 +28,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', function(req, res){
-	console.log('Request');
-	res.render('index');
-});
+//app.get('/', function(req, res){
+//	console.log('Request');
+//	res.render('index');
+//});
 
 app.get('/webhook/', bot.webhook_get);
 app.post('/webhook/', bot.webhook_post);
