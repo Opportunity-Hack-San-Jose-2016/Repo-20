@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_margin="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+    <TextView
+        android:id="@+id/refugee_list_id_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/refugee_uin"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:id="@+id/refugee_list_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/refugee_list_id_label"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:id="@+id/refugee_list_zip_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/refugee_zip"
+        android:layout_below="@+id/refugee_list_id_label"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:id="@+id/refugee_list_zip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/refugee_list_zip_label"
+        android:layout_marginTop="2dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"/>
+
+    </RelativeLayout>
+</RelativeLayout>

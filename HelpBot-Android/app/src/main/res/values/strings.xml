@@ -1,4 +1,15 @@
 <resources>
-    <string name="app_name">HelpBot-Android</string>
+    <string name="app_name">Help Bot</string>
     <string name="gcm_sender_id">537913534080</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_refugee">There are no refugee...</string>
+    <string name="refugee_uin">Refugee ID:</string>
+    <string name="refugee_zip">Refugee Address:</string>
+    <string name="refugee_phone">Refugee Phone:</string>
+    <string name="refugee_msg">Refugee Message:</string>
+    <string name="google_api_key">AIzaSyCj_IDSsOX2rBx7aNQbqA2pVapPiRaSb48</string>
 </resources>
