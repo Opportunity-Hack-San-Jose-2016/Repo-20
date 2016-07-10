@@ -6,6 +6,7 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/volunteer_style.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
@@ -14,11 +15,60 @@
 	src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script src="controllers/volunteer-controller.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATKZoaM5JLz25tL3aPJ1A_ZPi6ZnsAtAQ&callback=initMap2" type="text/javascript" async defer></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATKZoaM5JLz25tL3aPJ1A_ZPi6ZnsAtAQ&callback=initMap2"
+	type="text/javascript" async defer></script>
 </head>
-<body ng-app="volunteers" ng-controller="volunteerController">
+<body style="background: #e8e8e8" ng-app="volunteers"
+	ng-controller="volunteerController">
 
 	<script>
+	
+	
+	
+	
+		var refugees = [
+		                {
+		                	name : "Kartik",
+		                	zipcode : 95112,
+		                	age : 26,
+		                	gender : "Male",
+		                	disability : "None",
+		                	lat : 37.3456,
+		                	long : 121.8847
+		                },
+		                {
+		                	name : "Swapnil",
+		                	zipcode : 95112,
+		                	age : 25,
+		                	gender : "Male",
+		                	disability : "blind",
+		                	lat : 37.266949,
+		                	long : -122.025146
+		                },
+		                {
+		                	name : "Hanumant",
+		                	zipcode : 10001,
+		                	age : 24,
+		                	gender : "Male",
+		                	disability : "None",
+		                	lat : 40.7128,
+		                	long : 74.0059
+		                },
+		                {
+
+		                	name : "Awaise",
+		                	zipcode : 75201,
+		                	age : 27,
+		                	gender : "Male",
+		                	disability : "deaf",
+		                	lat : 32.7767,
+		                	long : 96.7970
+		                }
+		                
+		                ];
+	
+	
 		var socket = io();
 
 		socket.emit('chat message', 'hi');
@@ -26,16 +76,48 @@
 		socket.on('chat message', function(msg) {
 			console.log(msg);
 		});
+		socket.on('add', function(msg){
+			
+			var refugee = refugees.shift();
+			refugee.ID = msg.ID;
+			refugee.address = msg.address;
+			refugee.phone = msg.phone;
+			
+			var scope = angular.element($("#refugee-list")).scope();
+		    scope.$apply(function(){
+		        scope.refugees.push(refugee);
+		    })
+			refugees.push(refugee);
+			
+			console.log(msg);
+		});
 	</script>
 
+
+	<div style="margin: 10px;"></div>
+
+	<!-- Navbar content -->
+	<!-- </nav> -->
+
 	<div class="container-fluid">
+
+		<!-- <nav class="navbar navbar-dark bg-inverse"> -->
+
 		<div class="row">
-			<div class="col-md-8"
-				style="border: 1px solid black; min-height: 600px;">
-				<h3>People around you</h3>
+			<div class="col-md-4 col-md-offset-4">
+				<a href="#" style="margin: 0 auto; text-align: center;"><img
+					src="img/logo.png" style="margin: 0 auto;"></a>
+			</div>
+		</div>
+
+
+		<div class="row" id = "refugee-list">
+			<div class="col-md-6">
+				<h3>Refugees around you</h3>
 				<div class="panel-group" style="cursor: pointer">
-					<div class="panel panel-default" ng-repeat="refugee in refugees" onclick="initMap({{refugee.lat}},{{refugee.long}})">
-						<div class="panel-heading">{{refugee.name}}</div>
+					<div class="panel panel-default" ng-repeat="refugee in refugees"
+						onclick="initMap({{refugee.lat}},{{refugee.long}})">
+						<div class="panel-heading panel-color">{{refugee.name}}</div>
 						<div class="panel-body">
 							<div class="row" style="margin-left: 10px;">
 								<div class="col-md-4">Refugee ID : {{refugee.ID}}</div>
@@ -59,10 +141,9 @@
 				</div>
 
 			</div>
-			<div class="col-md-4"
-				style="border: 1px solid black; min-height: 600px;">
+			<div class="col-md-6" style="margin-top: 60px;">
 
-				<div id="gMap" style="width:100%; height:100%;"></div>
+				<div id="gMap" style="width: 100%; height: 70%;"></div>
 
 			</div>
 
@@ -70,14 +151,14 @@
 	</div>
 
 
-<script>
+	<script>
 
 function initMap2() {
 	  // Create a map object and specify the DOM element for display.
 	  var map = new google.maps.Map(document.getElementById('gMap'), {
 	    center: {lat: 0, lng: 0},
 	    scrollwheel: false,
-	    zoom: 16
+	    zoom: 14
 	  });
 	  console.log(map);
 	}
@@ -88,7 +169,7 @@ function initMap(lat, lng) {
 	  var map = new google.maps.Map(document.getElementById('gMap'), {
 	    center: {lat: lat, lng: lng},
 	    scrollwheel: false,
-	    zoom: 16
+	    zoom: 14
 	  });
 	  console.log(map);
 	}
