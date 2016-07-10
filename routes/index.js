@@ -2,6 +2,7 @@
 /*
  * GET home page.
  */
+var mysql = require('./mysql');
 
 var volunteers = [
 	{
@@ -65,6 +66,42 @@ exports.index = function(req, res){
 		
 	});
 	res.send({message : 'hi'});
+	
+};
+
+exports.list_refugees = function(req, res){
+	var sql_query = 'CALL read_refugee()';
+	
+	mysql.executeQuery(sql_query,function(err, rows){
+		
+		if(err){
+			res.send({status : "error"});
+		}else{
+			if(rows.length>0){
+				var refugees = [];
+				rows[0].forEach(function(item){
+					var temp = {};
+					temp.ID = item.ID;
+					temp.name = item.name;
+					temp.address = item.address;
+					temp.zipcode = item.zipcode;
+					temp.phone = item.phone;
+					temp.age = item.age;
+					temp.gender=item.Gender;
+					temp.disability = item.Disability;
+					temp.lat = item.latitude;
+					temp.long = item.longitude;
+					refugees.push(temp);
+				});
+				//console.log(refugees);
+				res.send({status : "success", refugees : refugees});
+			}else{
+				res.send({status : "empty"});
+			}
+			
+		}
+		
+	});
 	
 };
 

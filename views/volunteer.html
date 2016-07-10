@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Volunteer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script data-require="angular.js@1.1.5" data-semver="1.1.5"
+	src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="controllers/volunteer-controller.js"></script>
+</head>
+<body ng-app="volunteers" ng-controller="volunteerController">
+
+	<script>
+		var socket = io();
+
+		socket.emit('chat message', 'hi');
+
+		socket.on('chat message', function(msg) {
+			console.log(msg);
+		});
+	</script>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8"
+				style="border: 1px solid black; min-height: 600px;">
+				<h3>People around you</h3>
+				<div class="panel-group" style="cursor:pointer">
+					<div class="panel panel-default" ng-repeat="refugee in refugees">
+						<div class="panel-heading">{{refugee.name}}</div>
+						<div class="panel-body">
+							<div class="row" style="margin-left: 10px;">
+								<div class="col-md-4">Refugee ID : {{refugee.ID}}</div>								
+								<div class="col-md-4 col-md-offset-4">Age : {{refugee.age}}</div>
+							</div>
+							<div class="row" style="margin-left: 10px;">
+								<div class="col-md-4">Address : {{refugee.address}}</div>
+								<div class="col-md-4 col-md-offset-4">Disability : {{refugee.disability}}</div>
+							</div>
+							
+							<div class="row" style="margin-left: 10px;">
+								<div class="col-md-4">Zip Code : {{refugee.zipcode}}</div>
+								<div class="col-md-4 col-md-offset-4">Phone : {{refugee.phone}}</div>
+							</div>
+							
+							
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-4"
+				style="border: 1px solid black; min-height: 600px;"></div>
+
+		</div>
+	</div>
+
+</body>
+</html>
